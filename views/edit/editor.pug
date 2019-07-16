@@ -1,0 +1,12 @@
+extends ../bootstrap
+
+block content
+    h1= title
+
+    .form-group
+        label(for='file_edit') Example textarea
+        textarea#file_edit.form-control(rows='20') #{edit}
+
+    button.btn.btn-primary(type='button') Save
+    button.btn.btn-secondary(type='button') Reset
+    button.btn.btn-danger(type='button') Cancel

@@ -1,0 +1,12 @@
+extends ../node_modules/pug-bootstrap/_bootstrap
+
+append styles
+  // Bootstrap theme
+  +bootswatch("cyborg")
+  // Custom styles for this template
+  link(href='../css/theme.css', rel='stylesheet')
+
+block body
+ h1= message
+ h2= error.status
+ pre #{error.stack}

@@ -1,0 +1,46 @@
+extends ../bootstrap
+
+block content
+  h1= title
+  
+  .container-fluid
+    table.table.table-striped.table-hover.table-bordered.sortable(style="text-align: center;" )
+      thead
+        tr.table-active
+            th File Name
+            th(colspan = 3 ) Option
+      each dirArr in results      
+        tbody
+          tr.table-default
+              th= dirArr
+              th
+                a(href="/setting/Backup/#{dirArr}") Backup
+              th
+                a(href="/setting/Restore/#{dirArr}") Restore
+              th 
+                a(href="/setting/Delete/#{dirArr}") Delete
+    
+
+  .form-group
+    label.col-form-label.col-form-label-lg(for='inputLarge') New Backup File  
+    form(action="new_backup", method="post")
+      input#inputLarge.form-control.form-control-lg(type='text', name='name', placeholder='Input File Name')
+      button.btn.btn-primary.btn-block(type='submit') Save
+
+
+  .form-group
+    label.col-form-label.col-form-label-lg(for='inputLarge') Upload File
+    
+    .well
+      input#file_backup.form-control-file(type='file', accept='.sql') 
+      hr
+      button.btn.btn-primary.btn-block(type='button') Upload File 
+    
+    small.form-text.text-muted
+      | Only .sql files can be uploaded. The uploaded file is moved to the /backup directory.  
+  
+
+
+
+
+ 

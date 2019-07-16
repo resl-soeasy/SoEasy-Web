@@ -1,0 +1,30 @@
+extends ../bootstrap
+
+block content
+	h1= title
+	.container-fluid
+		table.table.table-striped.table-hover.table-bordered.sortable(style="text-align: center;" )
+			thead
+				tr.table-active
+					th(data-sort-column="true") PHY
+					th V
+					th MODE
+					th NAME
+					th WPI
+					th BCM
+					th EDIT
+			tbody
+				each pinmap in results
+					tr.table-default
+						th= pinmap.phy
+						th 
+							a(href="#")= pinmap.V
+						th
+							a(href="#")= pinmap.mode
+						th= pinmap.name
+						th= pinmap.wpi
+						th= pinmap.bcm
+						th 
+							if (pinmap.name == '5V' || pinmap.name == '0V' || pinmap.name == '3.3V')
+							else 
+								a(href="/table/edit/" + pinmap.phy) EDIT

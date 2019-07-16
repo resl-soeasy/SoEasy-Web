@@ -1,0 +1,61 @@
+extends ../bootstrap
+
+block content
+    h1= title
+    each pinmap in results
+      .container-fluid
+        table.table.table-striped.table-hover.table-bordered.sortable(style="text-align: center;" )
+          thead
+            tr.table-active
+                th(data-sort-column="true") PHY
+                th NAME
+                th WPI
+                th BCM
+          tbody
+            tr.table-default
+                th= pinmap.phy
+                th= pinmap.name
+                th= pinmap.wpi
+                th= pinmap.bcm
+
+          form(action="/table/update" method="post")
+            table.table.table-striped.table-hover.table-bordered.sortable  
+                tr
+                  th.text-center Mode
+                  th
+                    select.form-control
+                      option(value="0") None
+                      option(value="1") Digital Output
+                      option(value="2") Digital Input
+                      option(value="3") Analog Input
+                      option(value="4") PWM Output
+                      option(value="5") UART RX
+                      option(value="6") UART TX
+
+                  tr
+                    th.text-center Value
+                    th
+                      input.form-control(type='text', name="value", value='0')
+            
+            input.btn.btn-primary(type='submit' value="UPDATE") 
+            button.btn.btn-danger(type='button' onclick="location.href='/table'") BACK
+        
+
+
+
+
+
+
+            
+              
+              
+
+
+
+      
+
+
+
+
+
+

@@ -1,0 +1,14 @@
+extends ../bootstrap
+
+block content
+    h1= title
+
+    .form-group
+        label(for='Platform') Select Platform
+        select#exampleSelect1.form-control
+            option Raspberry Pi 1
+            option Raspberry Pi 2
+            option Raspberry Pi 3 B+
+            option Beaglebone Black
+
+    button.btn.btn-primary.btn-block(type='button') Setting

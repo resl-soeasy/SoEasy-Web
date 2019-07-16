@@ -1,0 +1,11 @@
+extends ../bootstrap
+
+block content
+    h1= title
+
+    .form-group
+        label(for='Platform') Color
+        select#ColorSelect.form-control
+            option Black
+            option White
+    button.btn.btn-primary.btn-block(type='button') Setting

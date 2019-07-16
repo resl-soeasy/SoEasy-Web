@@ -1,0 +1,12 @@
+extends ../node_modules/pug-bootstrap/_bootstrap
+
+append styles
+	// Bootstrap theme
+	+bootswatch("cyborg")
+	// Custom styles for this template
+	link(href='../public/stylesheets/style.css', rel='stylesheet')
+
+block menu
+	include includes/menu
+
+	
