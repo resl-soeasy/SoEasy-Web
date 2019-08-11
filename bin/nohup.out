@@ -1,0 +1,11 @@
+[0mGET /table [36m304 [0m8.605 ms - -[0m
+[0mGET /table [36m304 [0m1.008 ms - -[0m
+[0mGET /table [36m304 [0m1.104 ms - -[0m
+[0mGET /table [36m304 [0m0.712 ms - -[0m
+[0mGET /table [32m200 [0m3.531 ms - 7[0m
+[0mGET /table [36m304 [0m1.344 ms - -[0m
+[0mGET /table [36m304 [0m0.766 ms - -[0m
+[0mGET /edit [32m200 [0m1500.182 ms - 2315[0m
+[0mGET /table [36m304 [0m2.689 ms - -[0m
+[0mGET / [36m304 [0m600.466 ms - -[0m
+[0mGET /setting/main [32m200 [0m361.721 ms - 2279[0m
