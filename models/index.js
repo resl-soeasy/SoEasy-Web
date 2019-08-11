@@ -34,4 +34,7 @@ Object.keys(db).forEach(modelName => {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
+require('./configure')(sequelize, Sequelize);
+require('./pinmap')(sequelize, Sequelize);
+
 module.exports = db;
