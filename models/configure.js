@@ -4,11 +4,11 @@ module.exports =(sequelize, DataTypes) => {
         name: {
             type:key.STRING(30),
             primaryKey: true,
-            allowNull: true
+            allowNull: false
         },
         value: {
             type:DataTypes.STRING(100),
-            allowNull: true
+            allowNull: false
         }
     });
 }
