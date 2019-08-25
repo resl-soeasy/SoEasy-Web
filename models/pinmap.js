@@ -2,7 +2,7 @@
 module.exports =(sequelize, DataTypes) => {
     return sequelize.define('pinmap', {
         phy: {
-            type:key.INTEGER,
+            type:DataTypes.INTEGER,
             primaryKey: true,
             allowNull: false
         },
@@ -26,9 +26,5 @@ module.exports =(sequelize, DataTypes) => {
             type:DataTypes.STRING(10),
             allowNull: false
         }
-
-
-
-
     });
 }

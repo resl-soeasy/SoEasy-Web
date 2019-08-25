@@ -9,11 +9,9 @@ var usersRouter = require('./routes/users');
 var settingRouter = require('./routes/setting');
 var tableRouter = require('./routes/table');
 var editRouter = require('./routes/edit');
-
+var sequelize 	= require('./models/index').sequelize;
+sequelize.sync();
 var app = express();
-
-var mysqlDB = require('./routes/mysql-db');
-mysqlDB.connect();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
