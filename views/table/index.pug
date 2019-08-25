@@ -12,6 +12,7 @@ block content
 					th NAME
 					th WPI
 					th BCM
+					th ON/OFF
 					th EDIT
 			tbody
 				each pinmap in results
@@ -24,7 +25,31 @@ block content
 						th= pinmap.name
 						th= pinmap.wpi
 						th= pinmap.bcm
+						th
+							script.
+								var something = function(index) {
+									var http = new XMLHttpRequest();
+									var url = '/table/pin';
+									var params = 'index=' + index;
+									http.open('POST', url, true);
+
+									//Send the proper header information along with the request
+									http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+									http.onreadystatechange = function() {//Call a function when the state changes.
+										if(http.readyState == 4 && http.status == 200) {
+											location.reload()
+										}
+									}
+									http.send(params);
+									
+								};
+								
+								
+
+							button(onclick="something(" + pinmap.phy + ")") Click
+							
 						th 
-							if (pinmap.name == '5V' || pinmap.name == '0V' || pinmap.name == '3.3V')
-							else 
-								a(href="/table/edit/" + pinmap.phy) EDIT
+						if (pinmap.name == '5V' || pinmap.name == '0V' || pinmap.name == '3.3V')
+						else 
+							a(href="/table/edit/" + pinmap.phy) EDIT
