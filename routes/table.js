@@ -1,35 +1,30 @@
 var express = require('express');
 var router = express.Router();
-
-var mysqlDB = require('./mysql-db');
+var model = require('../models/index');
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {
-    mysqlDB.query('select * from pinmap', function (err, result) {
-        if (!err) {
-            if (result[0] != undefined) {
-                res.render('table/index', {title: 'TABLE', results: result});
-            } else {
-                res.send('no data');
-            }
-        } else {
-            res.send('error : ' + err);
-        }
+    model.pinmap.findAll().then(function(results){
+        res.render('table/index', {
+            title: 'TABLE',
+            results: results
+        });
+    }).catch(function(err){
+        console.log("NO DATA");
     });
 });
 
 router.get('/edit/:phy', function(req, res, next) {
-    mysqlDB.query('select * from pinmap where phy = ?', [req.params.phy], function(err, result){
-        if (!err) {
-            if (result[0] != undefined) {
-                res.render('table/edit', {title: 'EDIT', results: result});
-            } else {
-                res.send('no data');
-            }
-        } else {
-            res.send('error : ' + err);
-        }
-    });
+    model.pinmap.findAll({
+        where: {phy:req.params.phy}
+    }).then(function(results){
+        res.render('table/edit', {
+            title: 'EDIT',
+            results: result
+        })
+    }).catch(function(err){
+        console.error("ERROR");
+    })
 });
 
 /* POST */
