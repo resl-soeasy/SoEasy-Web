@@ -5,6 +5,9 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var logger = require('morgan');
 
+// Execute Soeasy-Service
+require('./utils/service-execute');
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var settingRouter = require('./routes/setting');
