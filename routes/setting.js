@@ -3,6 +3,14 @@ var router = express.Router();
 const path = './backup';
 const fs = require('fs');
 
+router.get('/servicelog', function(req, res){
+  console.log("TEST");
+   var exec = require('child_process').exec;
+   
+   exec("tail -n 50 ./logs/soeasy-service.log", function(error, stdout, stderr) {
+     res.json({"result":stdout})
+   });
+});
 
 /* GET home page. */
 router.get('/', function(req, res, next) {

@@ -2,3 +2,33 @@ extends ../bootstrap
 
 block content
   h1= title
+
+  table
+    tr
+      th SoEasy 서비스 로그
+  table
+    tr
+      th#servicelog
+        script.
+          String.prototype.replaceAll = function(search, replacement) {
+              var target = this;
+              return target.split(search).join(replacement);
+          };
+
+          var something = function(index) {
+            var servicelogId = document.getElementById("servicelog");
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                var obj = JSON.parse(xhttp.responseText);
+
+                log = obj["result"].replaceAll("\n", "<br>");
+                servicelogId.innerHTML = log;
+                //return xhttp.responseText;
+              }
+            };
+            xhttp.open("GET", "/setting/servicelog", true);
+            xhttp.send();
+          };
+          something();
+
