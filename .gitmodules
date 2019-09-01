@@ -1,0 +1,4 @@
+[submodule "soeasy-service"]
+	path = soeasy-service
+	url = https://github.com/resl-soeasy/soeasy-service.git
+	branch = master
