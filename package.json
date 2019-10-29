@@ -18,7 +18,7 @@
     "node-addon-api": "^1.6.2",
     "pug": "^2.0.3",
     "pug-bootstrap": "0.0.15",
-    "sequelize": "^5.13.0",
+    "sequelize": "^5.15.1",
     "socket.io": "^2.1.1"
   }
 }
